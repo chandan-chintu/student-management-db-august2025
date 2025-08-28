@@ -10,4 +10,5 @@ public class StudentManagementDbApplication {
 		SpringApplication.run(StudentManagementDbApplication.class, args);
 	}
 
+
 }
