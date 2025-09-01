@@ -32,4 +32,38 @@ public class StudentService {
            return null;
        }
     }
+
+    public String updateStudentUsingPut(int id, Student newStudentRequest){
+        // find student with id
+        // if student is present, update it
+        // else we cannot update
+
+        Student existingStudent = getStudentById(id);
+        if(existingStudent!=null){
+            studentRepository.save(newStudentRequest);
+            return "Student updated successfully!";
+        } else{
+            return "Student not found hence cannot update";
+        }
+    }
+
+    public String updateStudentUsingPatch(int id, String newEmail){
+        // find student with id
+        // if student is present, update it
+        // else we cannot update
+
+        Student existingStudent = getStudentById(id);
+        if(existingStudent!=null){
+            existingStudent.setEmail(newEmail);
+            studentRepository.save(existingStudent);
+            return "Student updated successfully!";
+        } else{
+            return "Student not found hence cannot update";
+        }
+    }
+
+    public String deleteStudentById(int id){
+        studentRepository.deleteById(id);
+        return "Student with id : "+id+" got deleted successfully!";
+    }
 }

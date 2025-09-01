@@ -36,4 +36,21 @@ public class StudentController {
         return student;
     }
 
+    @PutMapping("/updatePut/{id}")
+    public String updateStudentUsingPut(@PathVariable int id, @RequestBody Student student){
+        String response =studentService.updateStudentUsingPut(id,student);
+        return response ;
+    }
+
+    @PatchMapping("/updatePatch/{id}")
+    public String updateStudentUsingPatch(@PathVariable int id, @RequestParam String newEmail){
+        String response =studentService.updateStudentUsingPatch(id,newEmail);
+        return response ;
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteStudentById(@PathVariable int id){
+        String response = studentService.deleteStudentById(id);
+        return response;
+    }
 }
